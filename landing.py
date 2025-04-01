@@ -1,24 +1,13 @@
 import streamlit as st
 
-# Print entire secrets dictionary
-st.write("Secrets loaded:", st.secrets)
 st.title("📔 Streamlit + Auth0 Production test")
-
-# Check if the user is already logged in
-if "auth_token" in st.session_state:
-    st.write("You are logged in!")
-else:
-    if st.button("Login with Auth0"):
-        # Trigger login process, e.g., st.login("auth0")
-        # Here you'd normally integrate with your auth system
-        st.write("Redirecting to Auth0...")
-        # After successful login, set the auth token
-        st.session_state.auth_token = "fake_token"  # Use the real token here
-        st.write("Successfully logged in!")
 
 st.markdown(
     "Hello DataFan, help me benchmark [Auth0](https://auth0.com/) for a future video by connecting with Google or creating an Email/Password account with verification 😁"
 )
+
+with st.container(border=True):
+    st.image("./img/demo.gif")
 
 st.write("\n")
 
@@ -30,9 +19,6 @@ if st.button(
 ):
     # st.login("google")
     st.login("auth0")
-
-if st.session_state.get("auth_status") == "logged_in":
-    st.write("Successfully Logged In!")
 
 with st.expander("📝 Privacy & Data Security Disclaimer"):
     st.markdown("""
