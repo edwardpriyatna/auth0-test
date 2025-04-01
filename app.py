@@ -25,7 +25,6 @@ if st.button(
     st.login("google")
 
 with st.sidebar:
-    st.header(f"Logged in with {st.experimental_user.email}")
     if st.button("🔓 Logout"):
         st.logout()
     with st.expander(
