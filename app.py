@@ -24,6 +24,8 @@ if st.button(
 ):
     st.login("google")
 
+st.logout('google')
+
 
 model = joblib.load("decision_tree_model.pkl")
 # Sidebar Navigation
