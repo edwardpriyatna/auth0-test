@@ -31,7 +31,7 @@ if not st.experimental_user.is_logged_in:
         If you have any questions, feel free to [reach out](mailto:edwardpriyatnax@gmail.com)
         """)
 
-    st.link_button("Find Any Bug?", url="https://github.com/andfanilo/streamlit-auth0-test/issues", icon=":material/bug_report:", type="tertiary")
+    st.link_button("Find Any Bug?", url="https://github.com/edwardpriyatna/auth0-test/issues", icon=":material/bug_report:", type="tertiary")
 
 else:
     # Sidebar Navigation
