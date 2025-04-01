@@ -46,10 +46,14 @@ else:
 
     # Home Page
     if st.session_state.page == "Home":
-        st.header(f"Hello {st.experimental_user.name} 👋")
-        st.image(st.experimental_user.picture, width=100)
+        user = st.experimental_user  # Store user info
+        if user and hasattr(user, "name"):
+            st.header(f"Hello {user.name} 👋")
+            if hasattr(user, "picture"):
+                st.image(user.picture, width=100)
         st.title("Welcome to the Healthcare Prediction System")
         st.write("This project uses machine learning to predict patient outcomes based on medical data.")
+
 
     # Data Entry Page
     elif st.session_state.page == "Data Entry":
