@@ -1,13 +1,11 @@
 import streamlit as st
 
+st.write(st.secrets["auth"]["auth0"])
 st.title("📔 Streamlit + Auth0 Production test")
 
 st.markdown(
     "Hello DataFan, help me benchmark [Auth0](https://auth0.com/) for a future video by connecting with Google or creating an Email/Password account with verification 😁"
 )
-
-with st.container(border=True):
-    st.image("./img/demo.gif")
 
 st.write("\n")
 
