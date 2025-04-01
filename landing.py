@@ -1,5 +1,6 @@
 import streamlit as st
 
+st.rerun()
 # Check if the user is authenticated using the key set by st.login("auth0")
 if st.session_state.get("auth0_authenticated", False):
     # --- CONTENT SHOWN *ONLY* WHEN LOGGED IN ---
