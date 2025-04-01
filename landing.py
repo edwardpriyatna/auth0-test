@@ -31,7 +31,7 @@ else:
 
     with st.container(border=True):
         try:
-            st.image("./img/stroke-brain.gif",use_column_width=True)
+            st.image("./img/stroke-brain.gif",use_container_width =True)
         except Exception as e:
             st.warning(f"Could not load ./img/demo.gif: {e}") # More informative error
 
