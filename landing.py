@@ -11,14 +11,6 @@ st.subheader("Current Session State:")
 st.write(st.session_state)
 st.divider()
 
-# Define authentication callback
-def handle_auth():
-    """Callback function to update session state after login"""
-    if st.session_state.get("auth0_authenticated", False):
-        st.success("✅ Successfully logged in!")
-    else:
-        st.warning("⚠️ Authentication failed. Please try again.")
-
 # Check if the user is authenticated
 if st.session_state.auth0_authenticated:
     st.success("✅ Successfully logged in!")
@@ -45,9 +37,9 @@ else:
 
     st.write("\n")
 
-    # Auth0 Login Button with Callback
+    # Auth0 Login Button
     if st.button("✨ Sign up / Log in via Auth0", type="primary", key="auth0-login-button", use_container_width=True):
-        st.login("auth0", on_success=handle_auth)  # Pass callback function
+        st.login("auth0")  # No extra parameters
 
     with st.expander("📝 Privacy & Data Security Disclaimer"):
         st.markdown("""
