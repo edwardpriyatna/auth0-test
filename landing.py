@@ -27,12 +27,11 @@ if st.session_state.get("auth0_authenticated", False):
 
 else:
     # --- CONTENT SHOWN *ONLY* WHEN *NOT* LOGGED IN ---
-    st.title("📔 Streamlit + Auth0 Production Test")
-    st.markdown("Stroke Prediction Model Using Time Series Data")
+    st.title("📔 Stroke Prediction Model Using Time Series Data")
 
     with st.container(border=True):
         try:
-            st.image("./img/demo.gif")
+            st.image("./img/stroke-brain.gif")
         except Exception as e:
             st.warning(f"Could not load ./img/demo.gif: {e}") # More informative error
 
