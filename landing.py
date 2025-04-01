@@ -1,6 +1,5 @@
 import streamlit as st
 
-st.rerun()
 # Check if the user is authenticated using the key set by st.login("auth0")
 if st.session_state.get("auth0_authenticated", False):
     # --- CONTENT SHOWN *ONLY* WHEN LOGGED IN ---
@@ -41,6 +40,7 @@ else:
         # After successful login, Streamlit sets specific session state keys
         # (like "auth0_authenticated") and reruns the script.
         st.login("auth0")
+        st.rerun()
 
     # The disclaimer and bug report link are also part of the "logged out" view
     with st.expander("📝 Privacy & Data Security Disclaimer"):
