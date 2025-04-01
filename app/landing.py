@@ -1,6 +1,7 @@
 import streamlit as st
 
-st.write(st.secrets["auth"]["auth0"])
+# Print entire secrets dictionary
+st.write("Secrets loaded:", st.secrets)
 st.title("📔 Streamlit + Auth0 Production test")
 
 st.markdown(
