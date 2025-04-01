@@ -19,6 +19,9 @@ if st.button(
     # st.login("google")
     st.login("auth0")
 
+if st.session_state.get("auth_status") == "logged_in":
+    st.write("Successfully Logged In!")
+
 with st.expander("📝 Privacy & Data Security Disclaimer"):
     st.markdown("""
 This app uses Auth0 for secure authentication, meaning your login credentials (such as email addresses) are handled and stored securely by Auth0, a trusted identity management platform.
