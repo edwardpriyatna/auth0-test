@@ -2,10 +2,13 @@ import streamlit as st
 import joblib
 import pandas as pd
 
+# Load Model
+model = joblib.load("decision_tree_model.pkl")
+
 # Check authentication status
 if not st.experimental_user.is_logged_in:
     st.title("📔 Stroke Prediction Model Using Time Series Data")
-    
+
     with st.container(border=True):
         try:
             st.image("./img/stroke-brain.gif", use_container_width=True)
@@ -31,13 +34,15 @@ if not st.experimental_user.is_logged_in:
     st.link_button("Find Any Bug?", url="https://github.com/andfanilo/streamlit-auth0-test/issues", icon=":material/bug_report:", type="tertiary")
 
 else:
-    # Load Model
-    model = joblib.load("decision_tree_model.pkl")
-    
     # Sidebar Navigation
     st.sidebar.title("Navigation")
     page = st.sidebar.radio("Go to", ["Home", "Data Entry", "Stroke Self-Assessment"])
     st.session_state.page = page
+
+    # Sidebar Log Out Button
+    st.sidebar.markdown("---")
+    if st.sidebar.button("🚪 Log Out", type="primary"):
+        st.logout()
 
     # Home Page
     if st.session_state.page == "Home":
@@ -110,6 +115,3 @@ else:
                 st.warning("⚠️ Moderate Risk: Consider lifestyle changes.")
             else:
                 st.success("✅ Low Risk: Maintain a healthy lifestyle.")
-
-    if st.button("Log Out"):
-        st.logout()
