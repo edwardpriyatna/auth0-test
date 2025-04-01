@@ -6,6 +6,11 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score
+import authlib
+
+st.title('Authentication')
+if st.button('Authenticate'):
+    st.login('google')
 
 model = joblib.load("decision_tree_model.pkl")
 # Sidebar Navigation
