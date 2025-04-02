@@ -54,7 +54,6 @@ else:
         st.title("Welcome to the Healthcare Prediction System")
         st.write("This project uses machine learning to predict patient outcomes based on medical data.")
 
-
     # Data Entry Page
     elif st.session_state.page == "Data Entry":
         st.title("Patient Data Entry & ML Model Prediction")
@@ -69,12 +68,21 @@ else:
             st.success("CSV uploaded and data loaded.")
 
         if st.button("➕ Add Another Entry"):
-            st.session_state.fields.append({key: 0.0 for key in ["temperature", "heartrate", "resprate", "o2sat", "sbp", "dbp", "rhythm", "pain", "gender", "anchor_age", "anchor_year", "anchor_year_group", "year", "month", "day", "hour", "minute", "second"]})
+            st.session_state.fields.append({
+                key: 0.0 for key in [
+                    "temperature", "heartrate", "resprate", "o2sat", "sbp", "dbp",
+                    "rhythm", "pain", "gender", "anchor_age", "anchor_year",
+                    "anchor_year_group", "year", "month", "day", "hour", "minute", "second"
+                ]
+            })
 
         for i, field in enumerate(st.session_state.fields):
             with st.expander(f"Entry {i + 1}"):
                 for key in field:
-                    st.session_state.fields[i][key] = st.number_input(key.capitalize(), value=field[key])
+                    unique_key = f"{key}_{i}"  # Ensure unique key for each input
+                    st.session_state.fields[i][key] = st.number_input(
+                        key.capitalize(), value=field[key], key=unique_key
+                    )
 
         if st.button("Run ML Model"):
             if not st.session_state.fields:
